@@ -139,6 +139,17 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
         setIsInfoShowing(!isInfoShowing)
     }
 
+    function sortByName(a: EqpmntType, b: EqpmntType) {
+        switch (a.owner > b.owner) {
+            case true:
+                return 1
+            case false:
+                return -1
+            default:
+                return 0
+        }
+    }
+
     return (
         <div>Список оборудования
             <div className={style.equipment}>Всё оборудование</div>
@@ -232,7 +243,7 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
 
                         </TableRow>
                     </TableHead>
-                    {equipmentState.map((eq, index, array) => {
+                    {equipmentState.sort(sortByName).map((eq, index, array) => {
                         return <TableRow key={eq.id}>
                             <TableCell component="th" scope="row">{eq.name}
 

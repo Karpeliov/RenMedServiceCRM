@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import {initialEqpmntStateType} from "../../../Redux/eqpmnt-reduser";
 import {
-    Button, Grid,
-    Paper,
+    Button, Grid, IconButton,
+    Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
 } from "@material-ui/core";
 import style from "../../EquipmentList/EquipmentComponent/EquipmentCard.module.css";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../../Redux/redux-store";
+import {Delete} from "@material-ui/icons";
 
 export type EquipmentPropsType = {
     // store: storeType
@@ -22,12 +23,40 @@ function EquipmentCardWithTable(props: EquipmentPropsType) {
     return (
         <div className={style.equipmentCard}>
             <Paper elevation={3}>
-                <span><b>Last pulse count: </b>{equipmentState[props.index].pulseCount} </span>
-                <div><b>дата: </b>{equipmentState[props.index].repairs?.map(r => r.date)} </div>
-                <span><b>что сделано: </b>{equipmentState[props.index].repairs?.map(r => r.whatWasDone)}; </span>
-                <span><b>заменено: </b>{equipmentState[props.index].repairs?.map(r => r.whatWasReplaced)}; </span>
-                <div><b>примечания: </b>{equipmentState[props.index].repairs?.map(r => r.notes)};
-                <b> исполнитель: </b> {equipmentState[props.index].repairs?.map(r => r.serviceMan)}</div>
+
+                <TableContainer component={Paper}>
+                    <Table className={style.table} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Дата ремонта</TableCell>
+                                <TableCell align="right">Кол-во импульсов </TableCell>
+                                <TableCell align="left">Проведённые работы</TableCell>
+                                <TableCell align="left">Заменено</TableCell>
+                                <TableCell align="left">Комментарии</TableCell>
+                                <TableCell align="right">Исполнитель</TableCell>
+
+                            </TableRow>
+                        </TableHead>
+                        {equipmentState[props.index].repairs?.map((r, index, array) => {
+                            return <TableRow key={r.date}>
+                                <TableCell component="th" scope="row">{r.date}
+
+                                    {array[index + 1] && array[index + 1].date !== array[index].date && <hr/>}
+                                </TableCell>
+                                <TableCell align="right">{r.pulseCount} </TableCell>
+                                <TableCell align="left">{r.whatWasDone}</TableCell>
+                                <TableCell align="left">{r.whatWasReplaced}</TableCell>
+                                <TableCell align="left">{r.notes}</TableCell>
+                                <TableCell align="right">{r.serviceMan}</TableCell>
+                            </TableRow>
+
+                        })}
+                        <TableBody>
+
+                        </TableBody>
+
+                    </Table>
+                </TableContainer>
                 <Button onClick={() => props.setIsInfoShowing(false)} style={{}}>X</Button>
             </Paper>
 

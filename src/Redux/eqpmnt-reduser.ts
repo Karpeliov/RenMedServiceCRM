@@ -2,6 +2,7 @@ import {v1} from "uuid";
 
 export type SingleRepairType = {
     date: string
+    pulseCount: number
     whatWasDone: string
     serviceMan: string
     whatWasReplaced: string
@@ -14,7 +15,7 @@ export type EqpmntType = {
     sn: string
     instDate: string
     owner: string
-    pulseCount?: number
+
     repairs?: Array<SingleRepairType>
 }
 
@@ -87,10 +88,13 @@ export type initialEqpmntStateType = Array<EqpmntType>
 
 const initialEqpmntState = [
     {id: v1(), name: "Vectus", sn: "35-0651", instDate: "18.04.2013", owner: "ШайнЭст Люкс",
-        pulseCount: 12000000,
-        repairs:[{date: "2021-01-24", serviceMan: "Карпелёв", whatWasDone: "замена/ремонт помпы", notes: "выходной", whatWasReplaced: "-"},
-        ]},
-    {id: v1(), name: "Vectus", sn: "35-0632", instDate: "06.01.2014", owner: "ШайнЭст Люкс"},
+        repairs:[{date: "2021-01-24", pulseCount: 12000000, serviceMan: "Карпелёв", whatWasDone: "замена/ремонт помпы", notes: "выходной", whatWasReplaced: "-"},
+            {date: "2021-01-24", pulseCount: 12000000, serviceMan: "Карпелёв", whatWasDone: "замена Насадки", notes: "-", whatWasReplaced: "насадка"},
+            {date: "2021-01-14", pulseCount: 11950000, serviceMan: "Карпелёв", whatWasDone: "Ремонт БП", notes: "следить за перегревом", whatWasReplaced: "-"}]},
+
+    {id: v1(), name: "Vectus", sn: "35-0632", instDate: "06.01.2014", owner: "ШайнЭст Люкс", repairs:[{date: "2021-01-24", serviceMan: "Карпелёв", whatWasDone: "замена/ремонт помпы", notes: "выходной", whatWasReplaced: "-"},
+            ]},
+
     {id: v1(), name: "Icon", sn: "25-0618", instDate: "18.04.2013", owner: "ШайнЭст Люкс"},
     {id: v1(), name: "MedArt", sn: "123456", instDate: "02.04.2020", owner: "ШайнЭст Люкс"},
 
