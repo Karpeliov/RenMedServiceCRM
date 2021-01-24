@@ -1,20 +1,27 @@
 import React, {useState} from 'react';
 import {storeType} from "../../../index";
-import {dellEqpmntAC, EqpmntType} from "../../../Redux/eqpmnt-reduser";
+import {dellEqpmntAC, EqpmntType, initialEqpmntStateType} from "../../../Redux/eqpmnt-reduser";
 import {IconButton} from "@material-ui/core";
 import {Delete} from "@material-ui/icons";
 import {TypeNameType} from "../EquipmentList";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "../../../Redux/redux-store";
 
 export type EquipmentPropsType = EqpmntType & {
-       store: storeType
-    setEquipmentState: () => void
+     // store: storeType
+  //  setEquipmentState: () => void
 }
 
 function EquipmentCard(props: EquipmentPropsType) {
 
+    const equipmentState = useSelector<AppRootStateType, initialEqpmntStateType>(state => state.Equipment)
+
+    const dispatch = useDispatch()
+
     const delEq = () => {
-        props.store.dispatch(dellEqpmntAC(props.id))
-        props.setEquipmentState()
+        dispatch(dellEqpmntAC(props.id))
+      //props.store.dispatch(dellEqpmntAC(props.id))
+      //  props.setEquipmentState()
     }
 
     return (

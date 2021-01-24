@@ -1,18 +1,22 @@
-.App {
-  margin: 35px;
-  text-align: left;
+.app-wrapper {
+    margin: 0 auto;
+    display: grid;
+    width: 1200px;
+    grid-template-areas:
+"head head"
+"nav cont";
+
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 3fr 10fr;
+    grid-gap: 3px;
+
 }
 
-.error {
-  border: 2px solid red;
-  color: red;
+.app-wrapper-content {
+    grid-area: cont;
+    background-color: #e0e0a5;
+    padding-left: 15px;
 }
-
-.eqpmnt {
-  width: 500px;
-}
-
-
 
 
 

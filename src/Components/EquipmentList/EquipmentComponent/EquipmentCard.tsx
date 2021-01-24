@@ -3,7 +3,7 @@ import {storeType} from "../../../index";
 import {dellEqpmntAC, EqpmntType} from "../../../Redux/eqpmnt-reduser";
 import {IconButton} from "@material-ui/core";
 import {Delete} from "@material-ui/icons";
-import {TypeNameType} from "../EquipmentList";
+import {TypeNameType} from "../EquipmentListNew";
 
 export type EquipmentPropsType = EqpmntType & {
        store: storeType
