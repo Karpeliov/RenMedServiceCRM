@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/RenMedServiceCRM/static/css/main.1da1769e.chunk.css",
+    "main.js": "/RenMedServiceCRM/static/js/main.811b2165.chunk.js",
+    "main.js.map": "/RenMedServiceCRM/static/js/main.811b2165.chunk.js.map",
+    "runtime-main.js": "/RenMedServiceCRM/static/js/runtime-main.6be96e4e.js",
+    "runtime-main.js.map": "/RenMedServiceCRM/static/js/runtime-main.6be96e4e.js.map",
+    "static/js/2.3b7830a3.chunk.js": "/RenMedServiceCRM/static/js/2.3b7830a3.chunk.js",
+    "static/js/2.3b7830a3.chunk.js.map": "/RenMedServiceCRM/static/js/2.3b7830a3.chunk.js.map",
+    "static/js/3.00bfc5fc.chunk.js": "/RenMedServiceCRM/static/js/3.00bfc5fc.chunk.js",
+    "static/js/3.00bfc5fc.chunk.js.map": "/RenMedServiceCRM/static/js/3.00bfc5fc.chunk.js.map",
+    "index.html": "/RenMedServiceCRM/index.html",
+    "static/css/main.1da1769e.chunk.css.map": "/RenMedServiceCRM/static/css/main.1da1769e.chunk.css.map",
+    "static/js/2.3b7830a3.chunk.js.LICENSE.txt": "/RenMedServiceCRM/static/js/2.3b7830a3.chunk.js.LICENSE.txt",
+    "static/media/logo-RM.232d760a.jpg": "/RenMedServiceCRM/static/media/logo-RM.232d760a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6be96e4e.js",
+    "static/js/2.3b7830a3.chunk.js",
+    "static/css/main.1da1769e.chunk.css",
+    "static/js/main.811b2165.chunk.js"
+  ]
+}
