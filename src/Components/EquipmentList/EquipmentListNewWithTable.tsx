@@ -80,7 +80,6 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
         const trimmedDate = date.trim()
         const trimmedOwner = owner.trim()
         if (trimmedTypeName) {
-            // (props.store.dispatch({type: "FIND_EQPMNT", sn: sn, name: typeName, instDate: date})) // for working with store
             setEquipmentState(props.store.getState().Equipment.filter(eq => eq.name === typeName))
         } else if (trimmedSn) {
             setEquipmentState(props.store.getState().Equipment.filter(eq => eq.sn === sn))
@@ -89,7 +88,7 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
         } else if (trimmedOwner) {
             setEquipmentState(props.store.getState().Equipment.filter(eq => eq.owner === owner))
         } else {
-            setError("Заполните поля, по которым нужно искать.")
+            setError("Заполните поле, по которому нужно искать.")
 
         }
         setTypeName("")
@@ -136,10 +135,10 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
 
     const showInfo = (index: number) => {
         setShowingIndex(index)
-        setIsInfoShowing(!isInfoShowing)
+        setIsInfoShowing(true)
     }
 
-    function sortByName(a: EqpmntType, b: EqpmntType) {
+    function sortByOwner(a: EqpmntType, b: EqpmntType) {
         switch (a.owner > b.owner) {
             case true:
                 return 1
@@ -153,8 +152,6 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
     return (
         <div>Список оборудования
             <div className={style.equipment}>Всё оборудование</div>
-            {/*{"Type: "}*/}
-            {/*<InputLabel id="E-TYPE">Тип</InputLabel>*/}
             <Select labelId="E-TYPE"
                     label={"TYPE"}
                     variant={"outlined"}
@@ -168,11 +165,6 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
                 <option value={"MedArt"}>MedArt</option>
                 <option value={"Beyond Polus"}>Beyond Polus</option>
             </Select>
-
-
-            {/*<input className={ error ? "error" : ""} onChange={onChangeTypeHandler} value={typeName}/>*/}
-            {/*{" S/N "}*/}
-            {/*<input  className={error ? "error" : ""} onChange={onChangeSnHandler} value={sn}/>*/}
             <TextField variant={"outlined"}
                        size={"medium"}
                        label={"S/N (серийный номер)"}
@@ -181,10 +173,6 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
                        style={{marginLeft: "15px"}}
                        onChange={onChangeSnHandler}
                        value={sn}/>
-
-            {/*{" Date of Installation: "}*/}
-            {/*<input type={"date"} className={error ? "error" : ""} onChange={onChangeDateHandler} value={date}/>*/}
-
             <TextField id="install-date"
                        label="Дата установки"
                        type="date"
@@ -214,17 +202,17 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
             <Button variant={"contained"}
                     size={"large"}
                     style={{marginLeft: "15px", marginTop: "5px"}}
-                    onClick={addEqpmnt}>Add new</Button>
+                    onClick={addEqpmnt}>Добавить</Button>
 
             <Button variant={"contained"}
                     size={"large"}
                     style={{marginLeft: "15px", marginTop: "5px"}}
-                    onClick={findEqpmnt}>Find</Button>
+                    onClick={findEqpmnt}>Найти</Button>
 
             <Button variant={"contained"}
                     size={"large"}
                     style={{marginLeft: "15px", marginTop: "5px"}}
-                    onClick={ShowAllEqpmnt}>Show All</Button>
+                    onClick={ShowAllEqpmnt}>Показать всё</Button>
 
             {error && <div className={"error"} style={{color: "red"}}>{error}</div>}
             <hr/>
@@ -233,20 +221,17 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
                     <TableHead>
                         <TableRow>
                             <TableCell>Тип
-                                {/*<Button size={"small"} color={"secondary"} onClick={showInfo}>Info</Button>*/}
                             </TableCell>
                             <TableCell align="right"> </TableCell>
                             <TableCell align="right">S/N (серийный номер) </TableCell>
                             <TableCell align="right">Дата установки</TableCell>
                             <TableCell align="right">Владелец</TableCell>
                             <TableCell align="right">Удалить</TableCell>
-
                         </TableRow>
                     </TableHead>
-                    {equipmentState.sort(sortByName).map((eq, index, array) => {
+                    {equipmentState.sort(sortByOwner).map((eq, index, array) => {
                         return <TableRow key={eq.id}>
                             <TableCell component="th" scope="row">{eq.name}
-
                                 {array[index + 1] && array[index + 1].owner !== array[index].owner && <hr/>}
                             </TableCell>
                             <TableCell align="right"> <Button size={"small"} color={"secondary"}
@@ -263,21 +248,14 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
                                 </IconButton>
                             </TableCell>
                         </TableRow>
-
                     })}
                     <TableBody>
-
                     </TableBody>
 
                 </Table>
             </TableContainer>
-            {/*<div className={style.equipmentCard}>*/}
-                {isInfoShowing &&
-
-                <EquipmentCardWithTable index={showingIndex} setIsInfoShowing={setIsInfoShowing} />}
-            {/*</div>*/}
-
-
+            {isInfoShowing &&
+            <EquipmentCardWithTable index={showingIndex} setIsInfoShowing={setIsInfoShowing}/>}
         </div>
     )
 }
