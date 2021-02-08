@@ -177,7 +177,7 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
             <TextField id="install-date"
                        label="Дата установки"
                        type="date"
-                       defaultValue={""}
+                       //defaultValue={""}
                        variant={"outlined"}
                        size={"medium"}
                        error={!!error}

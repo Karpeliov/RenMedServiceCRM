@@ -38,7 +38,7 @@ function EquipmentCardWithTable(props: EquipmentPropsType) {
                             </TableRow>
                         </TableHead>
                         {equipmentState[props.index].repairs?.map((r, index, array) => {
-                            return <TableRow key={r.date}>
+                            return <TableRow key={index}>
                                 <TableCell component="th" scope="row">{r.date}
 
                                     {array[index + 1] && array[index + 1].date !== array[index].date && <hr/>}
