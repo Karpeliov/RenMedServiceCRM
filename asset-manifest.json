@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/RenMedServiceCRM/static/css/main.de72fab1.chunk.css",
-    "main.js": "/RenMedServiceCRM/static/js/main.7c705ddb.chunk.js",
-    "main.js.map": "/RenMedServiceCRM/static/js/main.7c705ddb.chunk.js.map",
+    "main.js": "/RenMedServiceCRM/static/js/main.36cc82a2.chunk.js",
+    "main.js.map": "/RenMedServiceCRM/static/js/main.36cc82a2.chunk.js.map",
     "runtime-main.js": "/RenMedServiceCRM/static/js/runtime-main.6be96e4e.js",
     "runtime-main.js.map": "/RenMedServiceCRM/static/js/runtime-main.6be96e4e.js.map",
     "static/js/2.3b7830a3.chunk.js": "/RenMedServiceCRM/static/js/2.3b7830a3.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.6be96e4e.js",
     "static/js/2.3b7830a3.chunk.js",
     "static/css/main.de72fab1.chunk.css",
-    "static/js/main.7c705ddb.chunk.js"
+    "static/js/main.36cc82a2.chunk.js"
   ]
 }
