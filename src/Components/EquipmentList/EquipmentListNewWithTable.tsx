@@ -152,7 +152,8 @@ function EquipmentListNewWithTable(props: CustomerCardPropsType) {
     return (
         <div>Список оборудования
             <div className={style.equipment}>Всё оборудование</div>
-            <Select labelId="E-TYPE"
+            <Select
+                 labelId="E-TYPE"
                     label={"TYPE"}
                     variant={"outlined"}
                     error={!!error}
